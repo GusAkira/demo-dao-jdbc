@@ -1,5 +1,6 @@
 package application;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -22,9 +23,9 @@ public class Program {
 		int id = sc.nextInt();
 		System.out.println("ID localizado: ");
 		Seller seller = sellerDao.findById(id);
-		System.out.println(seller);		
+		System.out.println(seller);
 		System.out.println();
-		
+
 		System.out.println("====  test2: seller findByDepartment ====");
 		System.out.print("Digite um Departamento: ");
 		int dep = sc.nextInt();
@@ -35,13 +36,20 @@ public class Program {
 			System.out.println(obj);
 		}
 		System.out.println();
-		
+
 		System.out.println("====  test3: seller findAll ====");
 		System.out.println("Todos os Departamentos");
 		list = sellerDao.findAll();
 		for (Seller obj : list) {
 			System.out.println(obj);
 		}
+		System.out.println();
+
+		System.out.println("====  test4: seller insert ====");
+		System.out.println("Inserindo 1 ");
+		Seller newSeller = new Seller(null, "Greg", "Greg@gmail", new Date(), 5000.0, department);
+		sellerDao.insert(newSeller);
+		System.out.println("Inserted! New id = " + newSeller.getId());
 
 	}
 
