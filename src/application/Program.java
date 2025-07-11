@@ -51,12 +51,19 @@ public class Program {
 		sellerDao.insert(newSeller);
 		System.out.println("Inserted! New id = " + newSeller.getId());
 		
-		System.out.println("====  test5: seller insert ====");
+		System.out.println("====  test5: seller Update ====");
 		seller = sellerDao.findById(1);
 		seller.setName("Marina Sivero");
 		sellerDao.update(seller);
 		System.out.println("Update Completed");
+		
+		System.out.println("====  test6: seller Delete ====");
+		System.out.println("Entre com um ID para deletar");
+		int delId = sc.nextInt();
+		sellerDao.deleteById(delId);
+		System.out.println("Delete Completed");
 
+		sc.close();
 	}
 
 }
